@@ -10,6 +10,10 @@ const Container = styled.div`
   width: -webkit-fill-available;
   background-image: linear-gradient(to bottom, #4b7a93, #213236);
   color: white;
+
+  a {
+    color: white !important;
+  }
 `;
 
 return (

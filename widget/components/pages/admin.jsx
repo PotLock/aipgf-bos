@@ -92,7 +92,7 @@ const Container = styled.div`
   margin: 0 auto;
   padding: 20px;
   text-align: left;
-  min-height:65vh;
+  min-height: 65vh;
 `;
 
 const Tab = styled.button`
