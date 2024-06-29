@@ -1,0 +1,7 @@
+{
+  "account": "bos.forum.potlock.near",
+  "aliasPrefix": "REPL",
+  "aliasesContainsPrefix": true,
+  "aliases": ["./aliases.mainnet.json"],
+  "index":"bos.forum.potlock.near/widget/app"
+}
