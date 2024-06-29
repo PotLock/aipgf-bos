@@ -22,7 +22,7 @@ const Logo = () => {
       <Link
         to={linkHref({
           widgetSrc: `${REPL_AI_PGF_FORUM}/widget/app`,
-          params: { page: "about" },
+          params: { page: "proposals" },
         })}
       >
         <div className="d-flex gap-2 align-items-center">
