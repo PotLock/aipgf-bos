@@ -238,7 +238,7 @@ return (
       }}
     />
     <Widget
-      src={`${REPL_DEVHUB}/widget/devhub.entity.proposal.Profile`}
+      src={`${REPL_AI_PGF_FORUM}/widget/components.molecule.Profile`}
       props={{
         accountId: accountId,
       }}

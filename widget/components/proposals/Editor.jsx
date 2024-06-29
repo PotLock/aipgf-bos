@@ -1118,7 +1118,7 @@ return (
           <div className="d-flex gap-2 w-100">
             <div className="d-none d-sm-flex">
               <Widget
-                src={`${REPL_DEVHUB}/widget/devhub.entity.proposal.Profile`}
+                src={`${REPL_AI_PGF_FORUM}/widget/components.molecule.Profile`}
                 props={{
                   accountId: author,
                 }}

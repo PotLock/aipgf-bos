@@ -137,7 +137,7 @@ const FeedItem = ({ proposal, index }) => {
       >
         <div className="d-flex gap-4 w-100">
           <Widget
-            src={`${REPL_DEVHUB}/widget/devhub.entity.proposal.Profile`}
+            src={`${REPL_AI_PGF_FORUM}/widget/components.molecule.Profile`}
             props={{
               accountId,
             }}

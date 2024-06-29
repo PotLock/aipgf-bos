@@ -257,9 +257,13 @@ const Avatar = styled.div`
 
 const LinkProfile = ({ account, children }) => {
   return (
-    <Link href={`/near/widget/ProfilePage?accountId=${account}`}>
+    <a
+      rel="noopener noreferrer"
+      target="_blank"
+      href={`https://near.social/near/widget/ProfilePage?accountId=${account}`}
+    >
       {children}
-    </Link>
+    </a>
   );
 };
 
@@ -770,7 +774,7 @@ return (
               >
                 <div className="d-none d-sm-flex">
                   <Widget
-                    src={`${REPL_DEVHUB}/widget/devhub.entity.proposal.Profile`}
+                    src={`${REPL_AI_PGF_FORUM}/widget/components.molecule.Profile`}
                     props={{
                       accountId: authorId,
                     }}
@@ -900,8 +904,9 @@ return (
               className="d-flex flex-column gap-4 flex-1 order-1 order-md-2"
             >
               <SidePanelItem title="Author">
+                {console.log({ authorId })}
                 <Widget
-                  src={`${REPL_NEAR}/widget/AccountProfile`}
+                  src={`${REPL_AI_PGF_FORUM}/widget/components.molecule.AccountProfile`}
                   props={{
                     accountId: authorId,
                     noOverlay: true,
@@ -952,7 +957,7 @@ return (
               </SidePanelItem>
               <SidePanelItem title="Recipient Wallet Address">
                 <Widget
-                  src={`${REPL_NEAR}/widget/AccountProfile`}
+                  src={`${REPL_AI_PGF_FORUM}/widget/components.molecule.AccountProfile`}
                   props={{
                     accountId: snapshot.receiver_account,
                     noOverlay: true,
@@ -975,7 +980,7 @@ return (
                 ishidden={!snapshot.supervisor}
               >
                 <Widget
-                  src={`${REPL_NEAR}/widget/AccountProfile`}
+                  src={`${REPL_AI_PGF_FORUM}/widget/components.molecule.AccountProfile`}
                   props={{
                     accountId: snapshot.supervisor,
                     noOverlay: true,

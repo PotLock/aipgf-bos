@@ -45,7 +45,7 @@ return (
         >
           <div className="d-flex gap-2">
             <Widget
-              src={`${REPL_DEVHUB}/widget/devhub.entity.proposal.Profile`}
+              src={`${REPL_AI_PGF_FORUM}/widget/components.molecule.Profile`}
               props={{
                 accountId: item.snapshot.editor_id,
               }}

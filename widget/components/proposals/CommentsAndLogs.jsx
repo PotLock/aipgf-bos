@@ -162,7 +162,7 @@ const Comment = ({ commentItem }) => {
       <div className="d-flex gap-2 flex-1">
         <div className="d-none d-sm-flex">
           <Widget
-            src={`${REPL_DEVHUB}/widget/devhub.entity.proposal.Profile`}
+            src={`${REPL_AI_PGF_FORUM}/widget/components.molecule.Profile`}
             props={{
               accountId: accountId,
             }}
@@ -174,9 +174,13 @@ const Comment = ({ commentItem }) => {
         >
           <Header className="d-flex gap-3 align-items-center p-2 px-3">
             <div className="text-muted">
-              <Link href={`/near/widget/ProfilePage?accountId=${accountId}`}>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href={`https://near.social/near/widget/ProfilePage?accountId=${accountId}`}
+              >
                 <span className="fw-bold text-black">{accountId}</span>
-              </Link>
+              </a>
               commented ･{" "}
               <Widget
                 src={`${REPL_NEAR}/widget/TimeAgo`}
@@ -308,7 +312,7 @@ const AccountProfile = ({ accountId }) => {
   return (
     <span className="inline-flex fw-bold text-black">
       <Widget
-        src={`${REPL_DEVHUB}/widget/devhub.entity.proposal.Profile`}
+        src={`${REPL_AI_PGF_FORUM}/widget/components.molecule.Profile`}
         props={{
           accountId: accountId,
           size: "sm",

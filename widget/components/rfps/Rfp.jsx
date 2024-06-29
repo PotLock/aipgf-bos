@@ -259,9 +259,13 @@ const rfpLabelOptions = getGlobalLabels();
 
 const LinkProfile = ({ account, children }) => {
   return (
-    <Link href={`/near/widget/ProfilePage?accountId=${account}`}>
+    <a
+      rel="noopener noreferrer"
+      target="_blank"
+      href={`https://near.social/near/widget/ProfilePage?accountId=${account}`}
+    >
       {children}
-    </Link>
+    </a>
   );
 };
 
