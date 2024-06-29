@@ -13,7 +13,6 @@ function getGlobalLabels() {
   if (labels !== null) {
     labels = ensureOtherIsLast(labels);
   }
-  console.log(labels);
   return labels ?? null;
 }
 

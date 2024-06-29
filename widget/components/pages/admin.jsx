@@ -10,7 +10,7 @@ if (!accessControlInfo.members_list) {
 const rootMembers =
   Near.view("${REPL_AI_PGF_FORUM_CONTRACT}", "get_root_members") ?? null;
 const teamNames = Object.keys(rootMembers || {});
-console.log(accessControlInfo);
+
 const isModerator = Near.view(
   "${REPL_AI_PGF_FORUM_CONTRACT}",
   "is_allowed_to_write_rfps",

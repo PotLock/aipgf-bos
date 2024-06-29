@@ -513,7 +513,7 @@ const editProposal = ({ timeline }) => {
     supervisor: supervisor ?? snapshot.supervisor,
   };
   const args = {
-    labels: snapshot.linked_rfp ? [] : snapshot.labels,
+    labels: typeof snapshot.linked_rfp === "number" ? [] : snapshot.labels,
     body: body,
     id: proposal.id,
   };
@@ -900,7 +900,6 @@ return (
               className="d-flex flex-column gap-4 flex-1 order-1 order-md-2"
             >
               <SidePanelItem title="Author">
-                {console.log(authorId)}
                 <Widget
                   src={`${REPL_NEAR}/widget/AccountProfile`}
                   props={{

@@ -19,7 +19,6 @@ const PROPOSAL_TIMELINE_STATUS = {
 const QUERYAPI_ENDPOINT = `https://near-queryapi.api.pagoda.co/v1/graphql`;
 
 async function fetchGraphQL(operationsDoc, operationName, variables) {
-  console.log("heree", "${REPL_INDEXER_ACCOUNT}");
   return asyncFetch(QUERYAPI_ENDPOINT, {
     method: "POST",
     headers: { "x-hasura-role": "${REPL_INDEXER_ACCOUNT}" },
