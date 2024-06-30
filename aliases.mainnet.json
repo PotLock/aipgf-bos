@@ -1,0 +1,14 @@
+{
+  "REPL_DEVHUB": "devhub.near",
+  "REPL_AI_PGF_FORUM": "bos.forum.potlock.near",
+  "REPL_AI_PGF_FORUM_CONTRACT": "forum.potlock.near",
+  "REPL_NEAR": "near",
+  "REPL_MOB":"mob.near",
+  "REPL_RPC_URL": "https://rpc.mainnet.near.org",
+  "REPL_RFP_IMAGE": "https://ipfs.near.social/ipfs/bafkreicbygt4kajytlxij24jj6tkg2ppc2dw3dlqhkermkjjfgdfnlizzy",
+  "REPL_RFP_FEED_INDEXER_QUERY_NAME": "megha19_near_forum_potlock_rfps_with_latest_snapshot",
+  "REPL_RFP_INDEXER_QUERY_NAME": "megha19_near_forum_potlock_rfp_snapshots",
+  "REPL_PROPOSAL_FEED_INDEXER_QUERY_NAME": "megha19_near_forum_potlock_proposals_with_latest_snapshot",
+  "REPL_PROPOSAL_QUERY_NAME": "megha19_near_forum_potlock_proposal_snapshots",
+  "REPL_INDEXER_ACCOUNT":"megha19_near"
+}
