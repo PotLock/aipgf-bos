@@ -139,7 +139,12 @@ const FeedItem = ({ rfp, index }) => {
         }
       >
         <div className="d-flex gap-4 w-100">
-          <img src={"${REPL_RFP_IMAGE}"} height={35} width={35} />
+          <Widget
+            src={`${REPL_AI_PGF_FORUM}/widget/components.molecule.Profile`}
+            props={{
+              accountId: rfp.author_id,
+            }}
+          />
           <div className="d-flex flex-column gap-2 w-100 text-wrap">
             <div className="d-flex gap-2 align-items-center flex-wrap w-100">
               <div className="h6 mb-0 text-black">{rfp.name}</div>

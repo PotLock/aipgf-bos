@@ -758,7 +758,12 @@ return (
         >
           <div className="d-flex gap-3 w-100">
             <div className="d-none d-sm-flex">
-              <img src={"${REPL_RFP_IMAGE}"} height={35} width={35} />
+              <Widget
+                src={`${REPL_AI_PGF_FORUM}/widget/components.molecule.Profile`}
+                props={{
+                  accountId: author,
+                }}
+              />
             </div>
             <div className="d-flex flex-column gap-4 w-100">
               <InputContainer

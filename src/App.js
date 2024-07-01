@@ -14,7 +14,7 @@ import {
   useLocation,
 } from "react-router-dom";
 
-const SESSION_STORAGE_REDIRECT_MAP_KEY = 'nearSocialVMredirectMap';
+const SESSION_STORAGE_REDIRECT_MAP_KEY = "nearSocialVMredirectMap";
 
 function Viewer({ widgetSrc, code, initialProps }) {
   const location = useLocation();
@@ -43,11 +43,11 @@ function Viewer({ widgetSrc, code, initialProps }) {
       if (localStorageFlags?.bosLoaderUrl) {
         setRedirectMap(
           (await fetch(localStorageFlags.bosLoaderUrl).then((r) => r.json()))
-            .components
+            .components,
         );
       } else {
         setRedirectMap(
-          JSON.parse(sessionStorage.getItem(SESSION_STORAGE_REDIRECT_MAP_KEY))
+          JSON.parse(sessionStorage.getItem(SESSION_STORAGE_REDIRECT_MAP_KEY)),
         );
       }
     })();

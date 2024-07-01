@@ -26,12 +26,6 @@ const Logo = () => {
         })}
       >
         <div className="d-flex gap-2 align-items-center">
-          <img
-            height={35}
-            width={35}
-            src="https://ipfs.near.social/ipfs/bafkreicgbhtzxgdb3noivjfx4xcwsx6nq5pnjttdc4fpgfq74ynqj5h6mq"
-          />
-
           <b className="text-lg">AI-PGF</b>
         </div>
       </Link>
