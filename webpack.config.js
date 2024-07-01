@@ -125,12 +125,7 @@ module.exports = function (env) {
           replacement: hasDefaultRoute
             ? `<near-social-viewer ${renderAttribute(
                 "src",
-                defaultRoute.src
-              )} ${renderAttribute("code", defaultRoute.code)} ${renderAttribute(
-                "initialProps",
-                defaultRoute.initialProps !== undefined
-                  ? htmlStringify(defaultRoute.initialProps)
-                  : undefined
+                defaultRoute
               )}></near-social-viewer>`
             : "<near-social-viewer></near-social-viewer>",
         }),
