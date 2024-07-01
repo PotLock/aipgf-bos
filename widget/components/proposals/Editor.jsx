@@ -16,7 +16,9 @@ const ToCDocs = "https://aipgf.com/terms";
 const CoCDocs = "https://aipgf.com/conduct";
 if (!author) {
   return (
-    <Widget src={`${REPL_DEVHUB}/widget/devhub.entity.proposal.LoginScreen`} />
+    <Widget
+      src={`${REPL_AI_PGF_FORUM}/widget/components.molecule.LoginScreen`}
+    />
   );
 }
 let editProposalData = null;

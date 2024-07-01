@@ -73,7 +73,7 @@ const code = `
   <style>
   body {  
       margin: auto;
-      font-family: menlo monspace !important;
+      font-family: 'Menlo', monospace !important;
       overflow: visible;
       font-size:14px !important;
   }

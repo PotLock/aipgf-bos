@@ -26,7 +26,7 @@ const Theme = styled.div`
   .container-xl {
     padding-inline: 0px !important;
   }
-  font-family: menlo monspace !important;
+  font-family: "Menlo", monospace !important;
 `;
 const Container = styled.div`
   width: 100%;

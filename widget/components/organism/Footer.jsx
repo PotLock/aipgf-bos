@@ -76,11 +76,14 @@ const YoutubeIcon = () => {
 const SocialLinksContainer = () => {
   return (
     <div className="d-flex gap-md-4 gap-2 align-items-center">
-      <a href="https://x.com/potlock" target="_blank">
+      <a href="https://x.com/potlock_" target="_blank">
         <XIcon />
       </a>
       <a href="https://aipgf.com/telegram" target="_blank">
         <TelegramIcon />
+      </a>
+      <a href="https://aipgf.com" target="_blank" style={{ fontSize: 18 }}>
+        <i class="bi bi-globe"></i>
       </a>
     </div>
   );

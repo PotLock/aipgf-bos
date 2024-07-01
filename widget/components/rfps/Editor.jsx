@@ -25,11 +25,13 @@ const isAllowedToWriteRfp = Near.view(
   },
 );
 
-if (!author || !isAllowedToWriteRfp) {
+// if (!author || !isAllowedToWriteRfp) {
   return (
-    <Widget src={`${REPL_DEVHUB}/widget/devhub.entity.proposal.LoginScreen`} />
+    <Widget
+      src={`${REPL_AI_PGF_FORUM}/widget/components.molecule.LoginScreen`}
+    />
   );
-}
+// }
 
 let editRfpData = null;
 let draftRfpData = null;

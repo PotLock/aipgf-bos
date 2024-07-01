@@ -1,5 +1,5 @@
 const Container = styled.div`
-  font-family: menlo monspace !important;
+  font-family: "Menlo", monospace !important;
   p {
     white-space: pre-line; // This ensures text breaks to new line
 
