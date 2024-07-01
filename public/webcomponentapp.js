@@ -12,6 +12,7 @@ import { setupCoin98Wallet } from "@near-wallet-selector/coin98-wallet";
 import { setupXDEFI } from "@near-wallet-selector/xdefi";
 import { setupBitgetWallet } from "@near-wallet-selector/bitget-wallet";
 import { setupNearFi } from "@near-wallet-selector/nearfi";
+import { setupMintbaseWallet } from "@near-wallet-selector/mintbase-wallet";
 
 const selector = await setupWalletSelector({
   network: "mainnet",
@@ -28,6 +29,7 @@ const selector = await setupWalletSelector({
     setupXDEFI(),
     setupBitgetWallet(),
     setupNearFi(),
+    setupMintbaseWallet()
   ],
 });
 
