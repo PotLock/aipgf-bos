@@ -48,8 +48,10 @@ const ProfileIcon = () => {
   `;
   return (
     <Widget
-      src={`${REPL_DEVHUB}/widget/devhub.components.molecule.ProfileCard`}
-      props={{ iconOnly: true, accountId: context.accountId || null }}
+      src={`${REPL_AI_PGF_FORUM}/widget/components.molecule.Profile`}
+      props={{
+        accountId: context.accountId,
+      }}
     />
   );
 };

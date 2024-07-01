@@ -42,7 +42,13 @@ return (
           rel="noopener noreferrer"
         >
           <div className="d-flex gap-2">
-            <img src={"${REPL_RFP_IMAGE}"} height={40} width={40} />
+            <Widget
+              src={`${REPL_AI_PGF_FORUM}/widget/components.molecule.Profile`}
+              props={{
+                accountId: item.author_id,
+              }}
+            />
+
             <div className="d-flex flex-column" style={{ maxWidth: 250 }}>
               <b className="text-truncate">{item.snapshot.name}</b>
               <div className="text-sm text-muted">
