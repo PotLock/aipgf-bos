@@ -177,7 +177,7 @@ const Comment = ({ commentItem }) => {
               <a
                 rel="noopener noreferrer"
                 target="_blank"
-                href={`https://app.potlock.org/?tab=profile&accountId=${accountId}`}
+                href={`https://bos.potlock.org/?tab=profile&accountId=${accountId}`}
               >
                 <span className="fw-bold text-black">{accountId}</span>
               </a>

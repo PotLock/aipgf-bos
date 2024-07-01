@@ -759,7 +759,7 @@ return (
           className="flex-2 w-100 order-2 order-md-1"
         >
           <div className="d-flex gap-3 w-100">
-            <div className="d-none d-sm-flex">
+            <div className="d-none d-sm-flex" style={{ height: "max-content" }}>
               <Widget
                 src={`${REPL_AI_PGF_FORUM}/widget/components.molecule.Profile`}
                 props={{

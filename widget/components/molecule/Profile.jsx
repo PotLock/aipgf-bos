@@ -29,7 +29,7 @@ const Avatar = styled.div`
   }
 `;
 const profile = Social.get(`${accountId}/profile/**`, "final");
-const profileUrl = `https://app.potlock.org/?tab=profile&accountId=${accountId}`;
+const profileUrl = `https://bos.potlock.org/?tab=profile&accountId=${accountId}`;
 return (
   <a rel="noopener noreferrer" target="_blank" href={profileUrl}>
     <div className="d-flex gap-2 align-items-center">
