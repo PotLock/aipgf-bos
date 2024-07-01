@@ -260,7 +260,7 @@ const LinkProfile = ({ account, children }) => {
     <a
       rel="noopener noreferrer"
       target="_blank"
-      href={`https://near.social/near/widget/ProfilePage?accountId=${account}`}
+      href={`https://app.potlock.org/?tab=profile&accountId=${account}`}
     >
       {children}
     </a>

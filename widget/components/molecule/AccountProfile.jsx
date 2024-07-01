@@ -11,7 +11,7 @@ accountId = accountId || context.accountId;
 showFlagAccountFeature = showFlagAccountFeature ?? false;
 profile = profile || Social.get(`${accountId}/profile/**`, "final");
 
-const profileUrl = `https://near.social/near/widget/ProfilePage?accountId=${accountId}`;
+const profileUrl = `https://app.potlock.org/?tab=profile&accountId=${accountId}`
 
 const Wrapper = styled.a`
   display: inline-grid;
