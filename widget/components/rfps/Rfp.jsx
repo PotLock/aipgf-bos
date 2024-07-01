@@ -605,7 +605,12 @@ return (
                 }}
               >
                 <div className="d-none d-sm-flex">
-                  <img src={"${REPL_RFP_IMAGE}"} height={35} width={35} />
+                  <Widget
+                    src={`${REPL_AI_PGF_FORUM}/widget/components.molecule.Profile`}
+                    props={{
+                      accountId: authorId,
+                    }}
+                  />
                 </div>
                 <RfpContainer className="rounded-2 flex-1">
                   <Header className="d-flex gap-1 align-items-center p-2 px-3 ">
