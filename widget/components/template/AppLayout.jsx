@@ -11,7 +11,7 @@ const ParentContainer = gatewayURL.includes("near.org")
     `
   : styled.div`
       position: fixed;
-      inset: 73px 0px 0px;
+      inset: 0px 0px 0px;
       width: 100%;
       overflow-y: scroll;
       min-height: 90vh;
