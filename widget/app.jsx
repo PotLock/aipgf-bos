@@ -7,7 +7,7 @@ const { page, ...passProps } = props;
 
 // Import our modules
 const { AppLayout } = VM.require(
-  `${REPL_AI_PGF_FORUM}/widget/components.template.AppLayout`,
+  `${REPL_AI_PGF_FORUM}/widget/components.template.AppLayout`
 );
 
 if (!AppLayout) {
@@ -38,6 +38,10 @@ if (!page) {
 
 // This is our navigation, rendering the page based on the page parameter
 function Page() {
+  let labels = Near.view(`lists.potlock.near`, "get_list", {
+    list_id: 1,
+  });
+
   const routes = page.split(".");
   switch (routes[0]) {
     case "rfps": {
@@ -66,10 +70,21 @@ function Page() {
     }
     case "create-proposal": {
       return (
-        <Widget
-          src={`${REPL_AI_PGF_FORUM}/widget/components.proposals.Editor`}
-          props={{ ...passProps }}
-        />
+        <>
+          {!labels?.admins.includes(context?.accountId) ? (
+            <>
+              <Widget
+                src={`potlock.near/widget/Index`}
+                props={{ ...passProps, tab: "createproject" }}
+              />
+            </>
+          ) : (
+            <Widget
+              src={`${REPL_AI_PGF_FORUM}/widget/components.proposals.Editor`}
+              props={{ ...passProps }}
+            />
+          )}
+        </>
       );
     }
     case "ideas": {

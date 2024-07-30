@@ -9,7 +9,7 @@ function ensureOtherIsLast(arr) {
 }
 
 function getGlobalLabels() {
-  let labels = Near.view("${REPL_AI_PGF_FORUM_CONTRACT}", "get_global_labels");
+  let labels = Near.view(`${REPL_AI_PGF_FORUM_CONTRACT}`, "get_global_labels");
   if (labels !== null) {
     labels = ensureOtherIsLast(labels);
   }
