@@ -131,7 +131,7 @@ const isModerator = Near.view(
   "is_allowed_to_write_rfps",
   {
     editor: context.accountId,
-  },
+  }
 );
 
 if (isModerator) {
@@ -206,7 +206,17 @@ return (
           />
         ))}
       </LinksContainer>
-      {context.accountId && <ProfileIcon />}
+      {context.accountId ? (
+        <ProfileIcon />
+      ) : (
+        <button
+          id="open-walletselector-button"
+          type="button"
+          class="login-button"
+        >
+          Login
+        </button>
+      )}
       <MobileMenu onClick={() => setShowMenu(!showMenu)}>
         <MenuIcon />
       </MobileMenu>
@@ -249,9 +259,9 @@ return (
                   >
                     /{it.title}
                   </MobileLink>
-                ),
+                )
               )
-            ),
+            )
           )}
         </div>
       </MobileNav>
