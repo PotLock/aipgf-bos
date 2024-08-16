@@ -75,7 +75,7 @@ const YoutubeIcon = () => {
 
 const SocialLinksContainer = () => {
   return (
-    <div className="d-flex gap-md-4 gap-2 align-items-center">
+    <div className="d-flex gap-md-4 gap-2 items-center">
       <a href="https://x.com/potlock_" target="_blank">
         <XIcon />
       </a>
@@ -90,7 +90,19 @@ const SocialLinksContainer = () => {
 };
 
 return (
-  <Footer className="d-flex gap-2 justify-content-center align-items-center">
-    <SocialLinksContainer />
+  <Footer className="d-flex px-10 gap-2 justify-content-between  align-items-center">
+    <div style={{ width: 300 }}>
+      <SocialLinksContainer />
+    </div>
+    <p style={{ width: 400 }} className="pt-4">
+      Part of the 🫕 PotLock open funding stack
+    </p>
+    <div
+      style={{ width: 300, fontSize: 11 }}
+      className="d-flex align-items-center gap-1"
+    >
+      <>Subscribe to our newsletter</>
+      <button>Subscribe</button>
+    </div>
   </Footer>
 );
