@@ -1,12 +1,12 @@
 const { fetchGraphQL, parseJSON, isNumber } = VM.require(
-  `${REPL_AI_PGF_FORUM}/widget/core.common`,
+  `${REPL_AI_PGF_FORUM}/widget/core.common`
 ) || { fetchGraphQL: () => {}, parseJSON: () => {}, isNumber: () => {} };
 
 const { href } = VM.require(`${REPL_DEVHUB}/widget/core.lib.url`);
 href || (href = () => {});
 
 const { getGlobalLabels } = VM.require(
-  `${REPL_AI_PGF_FORUM}/widget/components.core.lib.contract`,
+  `${REPL_AI_PGF_FORUM}/widget/components.core.lib.contract`
 ) || { getGlobalLabels: () => {} };
 
 const Container = styled.div`
@@ -34,7 +34,7 @@ const Container = styled.div`
   }
 
   .bg-grey {
-    background-color: #f4f4f4;
+    background-color: #ffffff;
   }
 
   .border-bottom {
@@ -50,7 +50,7 @@ const Container = styled.div`
     border-right: none !important;
     border-bottom: none !important;
     &:hover {
-      background-color: #f4f4f4;
+      background-color: #ffffff;
     }
   }
 
@@ -369,7 +369,7 @@ const FeedPage = () => {
                 (result) => {
                   const rfpData = result.body.data?.[rfpQueryName];
                   return { ...item, rfpData: rfpData[0] };
-                },
+                }
               );
             } else {
               return Promise.resolve(item);
@@ -466,7 +466,9 @@ const FeedPage = () => {
   const renderedItems = state.data ? state.data.map(cachedRenderItem) : null;
 
   return (
-    <Container className="w-100 py-4 px-2 d-flex flex-column gap-3">
+    <Container
+      className="w-100 py-4 px-2 d-flex flex-column gap-3"
+    >
       <div className="d-flex justify-content-between flex-wrap gap-2 align-items-center">
         <Heading>
           Proposals
@@ -516,29 +518,6 @@ const FeedPage = () => {
               }}
             />
           </div>
-        </div>
-        <div className="mt-2 mt-xs-0">
-          <Link
-            to={href({
-              widgetSrc: `${REPL_AI_PGF_FORUM}/widget/app`,
-              params: { page: "create-proposal" },
-            })}
-          >
-            <Widget
-              src={`${REPL_DEVHUB}/widget/devhub.components.molecule.Button`}
-              props={{
-                label: (
-                  <div className="d-flex gap-2 align-items-center">
-                    <div>
-                      <i className="bi bi-plus-circle-fill"></i>
-                    </div>
-                    Submit Proposal
-                  </div>
-                ),
-                classNames: { root: "blue-btn" },
-              }}
-            />
-          </Link>
         </div>
       </div>
       <div style={{ minHeight: "50vh" }}>

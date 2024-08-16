@@ -46,7 +46,7 @@ const CommentContainer = styled.div`
 
 const Header = styled.div`
   position: relative;
-  background-color: #f4f4f4;
+  background-color: #ffffff;
   height: 50px;
 
   .menu {
