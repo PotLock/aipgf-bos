@@ -6,7 +6,7 @@ const ParentContainer = gatewayURL.includes("near.org")
   ? styled.div`
       width: 100%;
       min-height: 90vh;
-      background: #f4f4f4;
+      background: #ffffff;
       padding-bottom: 1rem;
     `
   : styled.div`
@@ -15,14 +15,14 @@ const ParentContainer = gatewayURL.includes("near.org")
       width: 100%;
       overflow-y: scroll;
       min-height: 90vh;
-      background: #f4f4f4;
+      background: #ffffff;
     `;
 
 const Theme = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: calc(-1 * var(--body-top-padding));
-  background: #f4f4f4;
+  background: #ffffff;
   .container-xl {
     padding-inline: 0px !important;
   }

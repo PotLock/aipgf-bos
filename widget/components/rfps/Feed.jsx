@@ -55,7 +55,7 @@ const Container = styled.div`
     border-right: none !important;
     border-bottom: none !important;
     &:hover {
-      background-color: #f4f4f4;
+      background-color: #ffffff;
     }
   }
 
