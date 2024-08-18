@@ -108,7 +108,7 @@ const Container = styled.div`
     flex: 1;
   }
   .bg-grey {
-    background-color: #f4f4f4;
+    background-color: #ffffff;
   }
 
   .border-bottom {

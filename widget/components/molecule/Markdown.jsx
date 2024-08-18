@@ -18,7 +18,7 @@ const Container = styled.div`
   }
 
   pre {
-    background-color: #f4f4f4;
+    background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 1em;
