@@ -258,3 +258,13 @@ return (
     )}
   </Navbar>
 );
+
+{/* <div class="login-container">
+<button
+  id="open-walletselector-button"
+  type="button"
+  class="login-button"
+>
+  Login
+</button>
+</div> */}
