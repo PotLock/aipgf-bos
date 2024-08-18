@@ -280,22 +280,22 @@ return (
           }}
           className="d-flex px-4 py-2 gap-2 align-items-center"
         >
-          <div>
-            +
-          </div>
+          <div>+</div>
           Submit Proposal
         </button>
       </Link>
       {context.accountId ? (
         <ProfileIcon />
       ) : (
-        <button
-          id="open-walletselector-button"
-          type="button"
-          class="login-button"
-        >
-          Login
-        </button>
+        <div style={{ width: 100 }} class="login-container">
+          <button
+            id="open-walletselector-button"
+            type="button"
+            class="login-button"
+          >
+            Login
+          </button>
+        </div>
       )}
       <MobileMenu onClick={() => setShowMenu(!showMenu)}>
         <MenuIcon />
@@ -348,13 +348,3 @@ return (
     )}
   </Navbar>
 );
-
-{/* <div class="login-container">
-<button
-  id="open-walletselector-button"
-  type="button"
-  class="login-button"
->
-  Login
-</button>
-</div> */}
