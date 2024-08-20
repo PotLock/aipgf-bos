@@ -284,9 +284,15 @@ const [rfpId, setRfpId] = useState(null);
 const [rfpIdsArray, setRfpIdsArray] = useState(null);
 const [isTxnCreated, setCreateTxn] = useState(false);
 const [oldRfpData, setOldRfpData] = useState(null);
-const [timeline, setTimeline] = useState({
-  status: RFP_TIMELINE_STATUS.ACCEPTING_SUBMISSIONS,
-});
+const [timeline, setTimeline] = useState(null);
+
+useEffect(() => {
+  if (!timeline) {
+    setTimeline({
+      status: RFP_TIMELINE_STATUS.ACCEPTING_SUBMISSIONS,
+    });
+  }
+}, [RFP_TIMELINE_STATUS]);
 
 if (allowDraft) {
   draftRfpData = Storage.privateGet(draftKey);
