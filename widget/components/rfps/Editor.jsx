@@ -285,6 +285,7 @@ const [rfpIdsArray, setRfpIdsArray] = useState(null);
 const [isTxnCreated, setCreateTxn] = useState(false);
 const [oldRfpData, setOldRfpData] = useState(null);
 const [timeline, setTimeline] = useState(null);
+const [isCancelModalOpen, setCancelModal] = useState(false);
 
 useEffect(() => {
   if (!timeline) {
@@ -338,7 +339,11 @@ useEffect(() => {
       setSummary(snapshot.summary);
       setDescription(snapshot.description);
       setSubmissionDeadline(getDate(snapshot.submission_deadline));
-      setTimeline(parseJSON(snapshot.timeline));
+      setTimeline(
+        Object.keys(parseJSON(snapshot.timeline))
+          ? parseJSON(snapshot.timeline)
+          : { status: RFP_TIMELINE_STATUS.ACCEPTING_SUBMISSIONS },
+      );
       if (isEditPage) {
         setConsent({ toc: true, coc: true });
       }
