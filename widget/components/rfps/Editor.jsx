@@ -340,7 +340,7 @@ useEffect(() => {
       setDescription(snapshot.description);
       setSubmissionDeadline(getDate(snapshot.submission_deadline));
       setTimeline(
-        Object.keys(parseJSON(snapshot.timeline))
+        Object.keys(parseJSON(snapshot.timeline) ?? {}).length > 0
           ? parseJSON(snapshot.timeline)
           : { status: RFP_TIMELINE_STATUS.ACCEPTING_SUBMISSIONS },
       );
