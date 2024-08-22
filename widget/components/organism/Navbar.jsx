@@ -287,15 +287,17 @@ return (
       {context.accountId ? (
         <ProfileIcon />
       ) : (
-        <div style={{ width: 100 }} class="login-container">
-          <button
-            id="open-walletselector-button"
-            type="button"
-            class="login-button"
-          >
-            Login
-          </button>
-        </div>
+        <>
+          <div style={{ width: 100 }} class="login-container">
+            <button
+              id="open-walletselector-button"
+              type="button"
+              class="login-button"
+            >
+              Login
+            </button>
+          </div>
+        </>
       )}
       <MobileMenu onClick={() => setShowMenu(!showMenu)}>
         <MenuIcon />
