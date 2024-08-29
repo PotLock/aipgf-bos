@@ -1,0 +1,16 @@
+name: Deploy Components to Mainnet
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy-mainnet:
+    uses: NEARBuilders/bos-workspace/.github/workflows/deploy.yml@main
+    with:
+      bw-legacy: false
+      deploy-env: "mainnet"
+      app-name: "aipgf-forum"
+      deploy-account-address: bos.forum.potlock.near
+      signer-account-address: bos.forum.potlock.near
+      signer-public-key: ${{ vars.NEAR_SOCIAL_ACCOUNT_PUBLIC_KEY }}
+    secrets:
+      SIGNER_PRIVATE_KEY: ${{ secrets.NEAR_SOCIAL_ACCOUNT_PRIVATE_KEY }}

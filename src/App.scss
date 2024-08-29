@@ -2,23 +2,11 @@
 
 body {
   overflow-y: scroll;
-  background-color: #ffffff;
-  font-family: "Menlo", monospace !important;
 }
 
 body,
 html {
   -webkit-font-smoothing: antialiased;
-}
-
-.login-container {
-  width: 100%;
-  display: flex;
-  justify-content: end;
-}
-
-.login-button {
-  margin: 1rem;
 }
 
 .pointer {
