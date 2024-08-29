@@ -1,5 +1,8 @@
 import { expect, test } from "@playwright/test";
-import { pauseIfVideoRecording, waitForSelectorToBeVisible } from "../testUtils";
+import {
+  pauseIfVideoRecording,
+  waitForSelectorToBeVisible,
+} from "../testUtils";
 
 test("Verify default route loads successfully and displays expected content", async ({
   page,
@@ -8,8 +11,10 @@ test("Verify default route loads successfully and displays expected content", as
   await page.goto("/");
 
   await page.evaluate(() => {
+		const config = JSON.stringify({ "vm": { "features": {"enableComponentSrcDataKey": true }}})
+
     document.body.innerHTML = `
-    <near-social-viewer src="devs.near/widget/default" initialprops='{"message": "hello world!"}'></near-social-viewer>
+    <near-social-viewer src="devs.near/widget/default" initialprops='{"message": "hello world!"}' config='${config}'></near-social-viewer>
     `;
   });
 
@@ -50,8 +55,8 @@ test("should load the other routes with params when provided", async ({
 
   // Verify route loads
   await waitForSelectorToBeVisible(
-    page,
-    'div[data-component="efiz.near/widget/Node"]'
+    page, 
+		'body > near-social-viewer > div > div > div > div'
   );
 
   // Verify provided props are active
@@ -60,29 +65,44 @@ test("should load the other routes with params when provided", async ({
   await pauseIfVideoRecording(page, 1000);
 });
 
-test("should be possible to set initialProps and src widget for the root path", async ({ page }) => {
+test("should be possible to set initialProps and src widget for the root path", async ({
+  page,
+}) => {
   await page.goto("/");
   await page.evaluate(() => {
+		const config = JSON.stringify({ "vm": { "features": {"enableComponentSrcDataKey": true }}})
+
     document.body.innerHTML = `
-    <near-social-viewer src="devhub.near/widget/app" initialProps='{"page": "community", "handle": "webassemblymusic"}'></near-social-viewer>
+    <near-social-viewer src="devhub.near/widget/app" initialProps='{"page": "community", "handle": "webassemblymusic"}' config='${config}'></near-social-viewer>
     `;
   });
-  await expect(await page.getByText('WebAssembly Music', { exact: true })).toBeVisible({ timeout: 10000});
+  await expect(
+    await page.getByText("WebAssembly Music", { exact: true })
+  ).toBeVisible({ timeout: 10000 });
 });
 
-test("for supporting SEO friendly URLs, it should be possible to set initialProps and src widget from any path", async ({ page }) => {
+test("for supporting SEO friendly URLs, it should be possible to set initialProps and src widget from any path", async ({
+  page,
+}) => {
   await page.goto("/community/webassemblymusic");
   await page.evaluate(() => {
-    const viewerElement = document.querySelector('near-social-viewer');
+    const viewerElement = document.querySelector("near-social-viewer");
     viewerElement.setAttribute("src", "devhub.near/widget/app");
     const pathparts = location.pathname.split("/");
-    viewerElement.setAttribute("initialProps", JSON.stringify({ page: pathparts[1], handle: pathparts[2] }));
+    viewerElement.setAttribute(
+      "initialProps",
+      JSON.stringify({ page: pathparts[1], handle: pathparts[2] })
+    );
   });
-  await expect(await page.getByText('WebAssembly Music', { exact: true })).toBeVisible();
+  await expect(
+    await page.getByText("WebAssembly Music", { exact: true })
+  ).toBeVisible();
 });
 
 test("should be able to load a widget from the path", async ({ page }) => {
   await page.goto("/petersalomonsen.near/widget/aliens_close");
-  const playButton = await page.frameLocator('iframe').getByRole('button', { name: '▶' })
+  const playButton = await page
+    .frameLocator("iframe")
+    .getByRole("button", { name: "▶" });
   await expect(playButton).toBeVisible();
 });

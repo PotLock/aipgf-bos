@@ -3,5 +3,9 @@
   "aliasPrefix": "REPL",
   "aliasesContainsPrefix": true,
   "aliases": ["./aliases.mainnet.json"],
-  "index":"bos.forum.potlock.near/widget/app"
+  "index":"bos.forum.potlock.near/widget/app",
+  "gateway": {
+    "bundleUrl": "./dist",
+    "tagName": "near-social-viewer"
+  }
 }

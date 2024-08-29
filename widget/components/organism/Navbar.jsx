@@ -289,13 +289,20 @@ return (
       ) : (
         <>
           <div style={{ width: 100 }} class="login-container">
-            <button
-              id="open-walletselector-button"
-              type="button"
-              class="login-button"
-            >
-              Login
-            </button>
+            <Wallet
+              provides={({ signIn, signOut }) => {
+                return (
+                  <button
+                    onClick={signIn}
+                    id="open-walletselector-button"
+                    type="button"
+                    class="login-button"
+                  >
+                    Login
+                  </button>
+                );
+              }}
+            />
           </div>
         </>
       )}
