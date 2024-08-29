@@ -128,12 +128,11 @@ const DescriptionField = styled.textarea`
 `;
 
 State.init({
-  projectID: '',
   projectName: '',
-  category: '',
+  category: 'AI-PGF',
   publicGoodReason: '',
   description: '',
-  author: 'Adrian Robison',
+  author: context.accountId,
   walletAddress: '',
   repo1: '',
   repo2: '',
@@ -154,7 +153,35 @@ const handleSubmit = () => {
     alert('Please agree to the terms and conditions and code of conduct.');
     return;
   }
-  // Submit logic here
+
+  const body = {
+    proposal_body_version: "V1",
+    linked_rfp: linkedRfp?.value,
+    category: "AI PGF",
+    name: state.projectName,
+    description: description,
+    summary: state.publicGoodReason,
+    linked_proposals: [],
+    requested_sponsorship_usd_amount: "0",
+    requested_sponsorship_paid_in_currency: "USDC",
+    receiver_account: state.walletAddress,
+    requested_sponsor: "impact.sputnik-dao.near",
+    timeline: { status: "DRAFT" }
+  };
+  const args = {
+    labels: [],
+    body: body,
+  };
+
+  Near.call([
+    {
+      contractName: "${REPL_AI_PGF_FORUM_CONTRACT}",
+      methodName: "add_proposal",
+      args: args,
+      gas: 270000000000000,
+      deposit: "100000000000000000000000",
+    },
+  ]);
 };
 
 // CSS styles to be used across the app.
@@ -217,172 +244,8 @@ function Page() {
     case "create-proposal": {
       return (
         <>
-          {!allIds?.includes(context?.accountId) ? (
-            <>
-             <Container>
-    <div className="row">
-      <div className="col-md-8">
-        <div className="text-center">
-          <ProfileImg>
-            <img src="https://via.placeholder.com/120" alt="Profile Image" />
-            <ProfileImgOverlay htmlFor="profile-image-upload">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.5 6.5H18.33L16.5 4.5H10.5V6.5H15.62L17.45 8.5H21.5V20.5H5.5V11.5H3.5V20.5C3.5 21.6 4.4 22.5 5.5 22.5H21.5C22.6 22.5 23.5 21.6 23.5 20.5V8.5C23.5 7.4 22.6 6.5 21.5 6.5ZM8.5 14.5C8.5 17.26 10.74 19.5 13.5 19.5C16.26 19.5 18.5 17.26 18.5 14.5C18.5 11.74 16.26 9.5 13.5 9.5C10.74 9.5 8.5 11.74 8.5 14.5ZM13.5 11.5C15.15 11.5 16.5 12.85 16.5 14.5C16.5 16.15 15.15 17.5 13.5 17.5C11.85 17.5 10.5 16.15 10.5 14.5C10.5 12.85 11.85 11.5 13.5 11.5ZM5.5 6.5H8.5V4.5H5.5V1.5H3.5V4.5H0.5V6.5H3.5V9.5H5.5V6.5Z"></path></svg>
-            </ProfileImgOverlay>
-            <input type="file" id="profile-image-upload" />
-          </ProfileImg>
-          <AddMember>Add member</AddMember>
-        </div>
-
-        <FormSection>
-          <label htmlFor="projectID">Project ID</label>
-          <input type="text" className="form-control" id="projectID" placeholder="Enter Title Here" 
-            value={state.projectID} 
-            onChange={(e) => handleInputChange('projectID', e.target.value)} 
-          />
-        </FormSection>
-
-        <FormSection>
-          <label htmlFor="projectName">Project Name</label>
-          <input type="text" className="form-control" id="projectName" placeholder="Enter Title Here" 
-            value={state.projectName} 
-            onChange={(e) => handleInputChange('projectName', e.target.value)} 
-          />
-        </FormSection>
-
-        <FormSection>
-          <label htmlFor="category">Category</label>
-          <select className="form-select" id="category" 
-            value={state.category} 
-            onChange={(e) => handleInputChange('category', e.target.value)}>
-            <option value="" disabled>Choose Category</option>
-            <option value="1">Category 1</option>
-            <option value="2">Category 2</option>
-          </select>
-        </FormSection>
-
-        <FormSection>
-          <label htmlFor="publicGood">Why Do you consider yourself a public good?</label>
-          <textarea className="form-control" id="publicGood" rows="3" placeholder="Enter response here." 
-            value={state.publicGoodReason} 
-            onChange={(e) => handleInputChange('publicGoodReason', e.target.value)} 
-          />
-        </FormSection>
-
-        <FormSection>
-          <label htmlFor="description">Description</label>
-          <DescriptionField className="form-control" id="description" rows="8"
-            placeholder="**PROJECT DETAILS**
-            Provide a clear overview of the scope, deliverables, and expected outcomes. What benefits will it provide to the community? How will you measure success?
-
-            **TIMELINE**
-            Describe the timeline of your project and key milestones, specifying if the work was already complete or not. Include your plans for reporting progress to the community.
-
-            -- OPTIONAL FIELDS // Please remove this line--
-
-            **TEAM**
-            Provide all of those who will be working on the project along with their relevant skillset and experience.
-
-            **BUDGET BREAKDOWN**
-            Include a detailed breakdown on how you will use the funds and include rate justification."
-            value={state.description} 
-            onChange={(e) => handleInputChange('description', e.target.value)}
-          />
-        </FormSection>
-      </div>
-
-      <div className="col-md-4">
-        <Sidebar>
-          <SidebarTitle>Author Details</SidebarTitle>
-          <FormSection>
-            <label htmlFor="author">Author</label>
-            <input type="text" className="form-control" id="author" value={state.author} readonly />
-          </FormSection>
-
-          <SidebarTitle>Smart Contract Address</SidebarTitle>
-          <FormSection>
-            <label htmlFor="walletAddress">Wallet Address</label>
-            <input type="text" className="form-control" id="walletAddress" placeholder="Enter Address" 
-              value={state.walletAddress} 
-              onChange={(e) => handleInputChange('walletAddress', e.target.value)} 
-            />
-          </FormSection>
-
-          <SidebarTitle>Open source repositories</SidebarTitle>
-          <FormSection>
-            <input type="text" className="form-control mb-2" placeholder="https://github.com/repo1"
-              value={state.repo1} 
-              onChange={(e) => handleInputChange('repo1', e.target.value)} 
-            />
-            <input type="text" className="form-control" placeholder="https://github.com/repo2"
-              value={state.repo2} 
-              onChange={(e) => handleInputChange('repo2', e.target.value)} 
-            />
-          </FormSection>
-
-          <SidebarTitle>Social Links</SidebarTitle>
-          <FormSection>
-            <label htmlFor="website">Website</label>
-            <input type="url" className="form-control mb-2" id="website" placeholder="http://"
-              value={state.website} 
-              onChange={(e) => handleInputChange('website', e.target.value)} 
-            />
-            <label htmlFor="twitter">Twitter</label>
-            <input type="text" className="form-control mb-2" id="twitter" placeholder="Twitter Handle"
-              value={state.twitter} 
-              onChange={(e) => handleInputChange('twitter', e.target.value)} 
-            />
-            <label htmlFor="telegram">Telegram</label>
-            <input type="text" className="form-control mb-2" id="telegram" placeholder="Telegram Handle"
-              value={state.telegram} 
-              onChange={(e) => handleInputChange('telegram', e.target.value)} 
-            />
-            <label htmlFor="github">GitHub</label>
-            <input type="text" className="form-control" id="github" placeholder="GitHub Username"
-              value={state.github} 
-              onChange={(e) => handleInputChange('github', e.target.value)} 
-            />
-          </FormSection>
-        </Sidebar>
-      </div>
-    </div>
-
-    <div className="row mt-4">
-      <div className="col-md-8">
-        <FormSection>
-          <label htmlFor="finalProjectName">Project Name</label>
-          <input type="text" className="form-control" id="finalProjectName" placeholder="Enter Title Here"
-            value={state.projectName} 
-            onChange={(e) => handleInputChange('projectName', e.target.value)} 
-          />
-        </FormSection>
-        <ConsentSection>
-          <div className="form-check mb-2">
-            <input className="form-check-input" type="checkbox" id="termsConditions"
-              checked={state.termsConditions} 
-              onChange={() => handleInputChange('termsConditions', !state.termsConditions)} 
-            />
-            <label className="form-check-label" htmlFor="termsConditions">
-              I've agreed to AIPGP's Terms and Conditions and commit to honoring it
-            </label>
-          </div>
-          <div className="form-check mb-2">
-            <input className="form-check-input" type="checkbox" id="codeConduct"
-              checked={state.codeConduct} 
-              onChange={() => handleInputChange('codeConduct', !state.codeConduct)} 
-            />
-            <label className="form-check-label" htmlFor="codeConduct">
-              I've read DevHub's Code of Conduct and commit to honoring it
-            </label>
-          </div>
-        </ConsentSection>
-        <div className="d-flex justify-content-between">
-          <ButtonSecondary>Discard Changes</ButtonSecondary>
-          <ButtonPrimary onClick={handleSubmit}>Create Project</ButtonPrimary>
-        </div>
-      </div>
-    </div>
-  </Container>
-            </>
+          {context.accountId && !allIds?.includes(context?.accountId) ? (
+            <Widget src={`${REPL_POTLOCK}/widget/Project.CreateForm`} props={{ ...passProps }} />
           ) : (
             <Widget
               src={`${REPL_AI_PGF_FORUM}/widget/components.proposals.Editor`}

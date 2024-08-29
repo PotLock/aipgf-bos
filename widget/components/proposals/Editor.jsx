@@ -642,8 +642,6 @@ const DropdowntBtnContainer = styled.div`
   a:hover {
     text-decoration: none;
   }
-
-}
 `;
 
 const LoadingButtonSpinner = (
