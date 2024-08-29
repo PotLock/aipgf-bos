@@ -11,6 +11,6 @@ jobs:
       app-name: "aipgf-forum"
       deploy-account-address: bos.forum.potlock.near
       signer-account-address: bos.forum.potlock.near
-      signer-public-key: ed25519:5e8ZaysQQdTidjmcSymKGfiWvXdLoLncFmZv9WbgaeJi
+      signer-public-key: ${{ vars.BOS_FORUM_POTLOCK_PUBLIC_KEY }}
     secrets:
-      SIGNER_PRIVATE_KEY: ${{ secrets.NEAR_SOCIAL_ACCOUNT_PRIVATE_KEY }}
+      SIGNER_PRIVATE_KEY: ${{ secrets.BOS_FORUM_POTLOCK_SIGNER_KEY }}

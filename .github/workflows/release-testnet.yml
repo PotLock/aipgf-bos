@@ -1,0 +1,17 @@
+name: Deploy Components to Testnet
+on:
+  push:
+    branches: [develop]
+jobs:
+  deploy-mainnet:
+    uses: NEARBuilders/bos-workspace/.github/workflows/deploy.yml@main
+    with:
+      bw-legacy: false
+      deploy-env: "testnet"
+      build-env: "testnet"
+      app-name: "aipgf-forum"
+      deploy-account-address: bos.forum.potlock.testnet
+      signer-account-address: bos.forum.potlock.testnet
+      signer-public-key: ${{ vars.TESTNET_BOS_FORUM_POTLOCK_PUBLIC_KEY }}
+    secrets:
+      SIGNER_PRIVATE_KEY: ${{ secrets.TESTNET_BOS_FORUM_POTLOCK_SIGNER_KEY }}
