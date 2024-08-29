@@ -73,7 +73,7 @@ const gatewayOrigin = data?.body?.headers?.Origin ?? "";
 const isPotlock =
   gatewayOrigin.includes("localhost") ||
   gatewayOrigin.includes("127.0.0.1") ||
-  gatewayOrigin.includes("forum.aipgf.com");
+  gatewayOrigin.includes("aipgf.com");
 
 return {
   isPotlock,
