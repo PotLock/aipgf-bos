@@ -6,6 +6,7 @@ on:
 
 jobs:
   deploy-widgets:
+    timeout-minutes: 60
     name: Diff from PR
     runs-on: ubuntu-latest
     steps:
